@@ -1,0 +1,6 @@
+{
+  "name": "Programmers Club | AIKTC",
+  "description": "Official website of Programmers Club (PC), AIKTC - Student-driven technical community fostering coding, innovation, and collaboration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
