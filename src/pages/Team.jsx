@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Award, Target, Code2, Search, Sparkles } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import TeamMemberCard from '../components/team/TeamMemberCard';
-import PhotoUploadGuide from '../components/team/PhotoUploadGuide';
 import { TEAM_MEMBERS, TEAM_CATEGORIES, TEAM_STATS } from '../data/team';
 
 const STAT_ICONS = {
@@ -70,9 +69,6 @@ export default function Team() {
             );
           })}
         </div>
-
-        {/* Directory & Upload Guidance Helper */}
-        <PhotoUploadGuide />
 
         {/* Filter Tabs & Search Bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border pb-6">
