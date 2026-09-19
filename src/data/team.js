@@ -263,10 +263,12 @@ export const TEAM_MEMBERS = [
     year: 'SE',
     department: 'Computer Engineering',
     bio: 'Supports team development projects, digital tooling, and codebase optimization.',
-    image: 'ADNAN KHAN.jpg',
+    image: 'ADNAN KHAN.jpeg',
     imageCandidates: [
+      'ADNAN KHAN.jpeg',
       'ADNAN KHAN.jpg',
       'ADNAN KHAN.png',
+      'adnan-khan.jpeg',
       'adnan-khan.jpg'
     ],
     socials: {
@@ -453,7 +455,7 @@ export const TEAM_MEMBERS = [
     role: 'Media Marketing Lead',
     category: 'Media & Marketing',
     isLead: true,
-    year: 'SE',
+    year: 'TE',
     department: 'Computer Engineering',
     bio: 'Directs digital campaigns, video content, social outreach, and media production for the club.',
     image: 'ASHISH BIND.png',
