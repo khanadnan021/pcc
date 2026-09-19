@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import SectionWrapper from '../common/SectionWrapper';
 import TeamMemberCard from '../team/TeamMemberCard';
+import MemberDetailModal from '../team/MemberDetailModal';
 import { TEAM_MEMBERS } from '../../data/team';
 
 export default function TeamSection() {
+  const [selectedMember, setSelectedMember] = useState(null);
+
   // Select leads and faculty for the homepage highlight
   const featuredMembers = TEAM_MEMBERS.filter(
     (m) => m.isLead || m.category === 'Faculty'
@@ -29,7 +32,11 @@ export default function TeamSection() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {featuredMembers.map((member) => (
-          <TeamMemberCard key={member.id} member={member} />
+          <TeamMemberCard
+            key={member.id}
+            member={member}
+            onSelect={setSelectedMember}
+          />
         ))}
       </div>
 
@@ -42,6 +49,13 @@ export default function TeamSection() {
           <ArrowRight className="w-4 h-4 text-primary" />
         </Link>
       </div>
+
+      {/* Member Strengths & Profile Modal */}
+      <MemberDetailModal
+        member={selectedMember}
+        isOpen={!!selectedMember}
+        onClose={() => setSelectedMember(null)}
+      />
     </SectionWrapper>
   );
 }

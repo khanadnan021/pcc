@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
-export default function TeamMemberCard({ member }) {
+export default function TeamMemberCard({ member, onSelect }) {
   const [candidateIndex, setCandidateIndex] = useState(0);
   const [imageFailed, setImageFailed] = useState(false);
 
@@ -34,14 +34,34 @@ export default function TeamMemberCard({ member }) {
     .join('')
     .toUpperCase();
 
+  const handleCardClick = () => {
+    if (onSelect) {
+      onSelect(member);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleCardClick();
+    }
+  };
+
   return (
     <div
       id={`team-card-${member.id}`}
-      className="group relative flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 bg-surface-card border border-border/80 hover:border-primary/50 hover:bg-surface-hover/80 hover:shadow-lg"
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={onSelect ? 0 : undefined}
+      role={onSelect ? 'button' : undefined}
+      aria-label={onSelect ? `View profile and strengths of ${member.name}` : undefined}
+      className={`group relative flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 bg-surface-card border border-border/80 hover:border-primary/50 hover:bg-surface-hover/80 hover:shadow-xl select-none ${
+        onSelect ? 'cursor-pointer' : ''
+      }`}
     >
       {/* Avatar Container */}
       <div className="relative mt-2 mb-4">
-        <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105 ring-2 ring-border group-hover:ring-primary/40">
+        <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105 ring-2 ring-border group-hover:ring-primary/50 shadow-md">
           {!imageFailed ? (
             <img
               src={currentSrc}
@@ -74,7 +94,7 @@ export default function TeamMemberCard({ member }) {
       </div>
 
       {/* Name */}
-      <h3 className="font-heading font-semibold text-text-primary text-base sm:text-lg tracking-tight">
+      <h3 className="font-heading font-semibold text-text-primary text-base sm:text-lg tracking-tight group-hover:text-primary transition-colors">
         {member.name}
       </h3>
 
@@ -102,43 +122,23 @@ export default function TeamMemberCard({ member }) {
         {member.bio}
       </p>
 
-      {/* Social Links */}
-      <div className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-border/60 w-full">
-        {member.socials?.github && (
-          <a
-            href={member.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-1.5 rounded-lg text-text-muted hover:text-primary hover:bg-surface transition-colors"
-            title={`${member.name} on GitHub`}
-            aria-label="GitHub profile"
-          >
-            <Github className="w-4 h-4" />
-          </a>
-        )}
-        {member.socials?.linkedin && (
-          <a
-            href={member.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-1.5 rounded-lg text-text-muted hover:text-primary hover:bg-surface transition-colors"
-            title={`${member.name} on LinkedIn`}
-            aria-label="LinkedIn profile"
-          >
-            <Linkedin className="w-4 h-4" />
-          </a>
-        )}
-        {member.socials?.email && (
+      {/* Message Symbol */}
+      {member.socials?.email && (
+        <div
+          className="flex items-center justify-center mt-3 pt-3 border-t border-border/60 w-full"
+          onClick={(e) => e.stopPropagation()}
+        >
           <a
             href={`mailto:${member.socials.email}`}
-            className="p-1.5 rounded-lg text-text-muted hover:text-primary hover:bg-surface transition-colors"
+            onClick={(e) => e.stopPropagation()}
+            className="p-1.5 rounded-lg text-text-muted hover:text-primary hover:bg-surface border border-transparent hover:border-border transition-colors cursor-pointer"
             title={`Email ${member.name}`}
             aria-label="Send email"
           >
             <Mail className="w-4 h-4" />
           </a>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

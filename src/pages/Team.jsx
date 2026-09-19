@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Award, Target, Code2, Search, Sparkles } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import TeamMemberCard from '../components/team/TeamMemberCard';
+import MemberDetailModal from '../components/team/MemberDetailModal';
 import { TEAM_MEMBERS, TEAM_CATEGORIES, TEAM_STATS } from '../data/team';
 
 const STAT_ICONS = {
@@ -15,6 +16,7 @@ const STAT_ICONS = {
 export default function Team() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedMember, setSelectedMember] = useState(null);
 
   // Filter team members based on category and search query
   const filteredMembers = useMemo(() => {
@@ -152,7 +154,10 @@ export default function Team() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <TeamMemberCard member={member} />
+                  <TeamMemberCard
+                    member={member}
+                    onSelect={setSelectedMember}
+                  />
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -178,6 +183,13 @@ export default function Team() {
           </div>
         )}
       </div>
+
+      {/* Profile & Strengths Modal */}
+      <MemberDetailModal
+        member={selectedMember}
+        isOpen={!!selectedMember}
+        onClose={() => setSelectedMember(null)}
+      />
     </div>
   );
 }
