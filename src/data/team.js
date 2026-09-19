@@ -4,12 +4,10 @@
 
 export const TEAM_CATEGORIES = [
   'All',
-  'Core Leaders',
   'Technical',
   'Design',
   'Documentation',
-  'Media & Marketing',
-  'Faculty'
+  'Media & Marketing'
 ];
 
 export const TEAM_STATS = [
@@ -49,8 +47,15 @@ export const TEAM_MEMBERS = [
     year: 'Faculty',
     department: 'Computer Engineering',
     bio: 'Leads the Department of Computer Engineering and guides the overarching vision of the Programmers Club.',
-    image: 'Prof. Tabrez Khan.jpg',
-    imageCandidates: ['Prof. Tabrez Khan.jpg', 'tabrez-khan.jpg'],
+    image: 'Prof Tabrez Khan.jpeg',
+    imageCandidates: [
+      'Prof Tabrez Khan.jpeg',
+      'Prof Tabrez Khan.jpg',
+      'Prof. Tabrez Khan.jpg',
+      'Prof. Tabrez Khan.jpeg',
+      'tabrez-khan.jpeg',
+      'tabrez-khan.jpg'
+    ],
     socials: {
       email: 'tabrez.khan@aiktc.ac.in',
       linkedin: '#'
@@ -64,8 +69,16 @@ export const TEAM_MEMBERS = [
     year: 'Faculty',
     department: 'Computer Engineering',
     bio: 'Guides academic integration, student mentorship, and club initiatives across the campus.',
-    image: 'Prof. Irfan Jamkhandikar.jpg',
-    imageCandidates: ['Prof. Irfan Jamkhandikar.jpg', 'irfan-jamkhandikar.jpg'],
+    image: 'Prof Irfan Jamakhandikar.jpeg',
+    imageCandidates: [
+      'Prof Irfan Jamakhandikar.jpeg',
+      'Prof Irfan Jamkhandikar.jpeg',
+      'Prof Irfan Jamakhandikar.jpg',
+      'Prof. Irfan Jamkhandikar.jpg',
+      'Prof. Irfan Jamkhandikar.jpeg',
+      'irfan-jamkhandikar.jpeg',
+      'irfan-jamkhandikar.jpg'
+    ],
     socials: {
       email: 'irfan.j@aiktc.ac.in',
       linkedin: '#'
@@ -77,7 +90,7 @@ export const TEAM_MEMBERS = [
     id: 'owais-shaikh',
     name: 'Owais Shaikh',
     role: 'PC Lead',
-    category: 'Core Leaders',
+    category: 'Technical',
     isLead: true,
     year: 'TE',
     department: 'Computer Engineering',
@@ -388,15 +401,19 @@ export const TEAM_MEMBERS = [
   // Documentation Team
   {
     id: 'mohammed-kazi',
-    name: 'Mohammed Kazi',
+    name: 'Mohammed Arif Kazi',
     role: 'Documentation Lead',
     category: 'Documentation',
     isLead: true,
     year: 'SE',
     department: 'Computer Engineering',
     bio: 'Supports the team in coding tasks, technical reports, and official club documentation archives.',
-    image: 'Mohammed Arif Kazi.jpg',
+    image: 'Mohammad Arif.jpeg',
     imageCandidates: [
+      'Mohammad Arif.jpeg',
+      'Mohammad Arif.jpg',
+      'Mohammed Arif.jpeg',
+      'Mohammed Arif.jpg',
       'Mohammed Arif Kazi.jpg',
       'Mohammed Arif Kazi.png',
       'MOHAMMED KAZI.jpg',

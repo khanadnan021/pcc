@@ -34,26 +34,14 @@ export default function TeamMemberCard({ member }) {
     .join('')
     .toUpperCase();
 
-  const isSpecialLead = member.isLead && member.category === 'Core Leaders';
-
   return (
     <div
       id={`team-card-${member.id}`}
-      className={`group relative flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 ${
-        isSpecialLead
-          ? 'bg-surface-card border-2 border-primary shadow-[0_0_30px_rgba(123,193,66,0.18)] hover:shadow-[0_0_40px_rgba(123,193,66,0.3)]'
-          : 'bg-surface-card border border-border/80 hover:border-primary/50 hover:bg-surface-hover/80 hover:shadow-lg'
-      }`}
+      className="group relative flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 bg-surface-card border border-border/80 hover:border-primary/50 hover:bg-surface-hover/80 hover:shadow-lg"
     >
       {/* Avatar Container */}
       <div className="relative mt-2 mb-4">
-        <div
-          className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105 ${
-            isSpecialLead
-              ? 'ring-4 ring-primary/80 shadow-[0_0_20px_rgba(123,193,66,0.4)]'
-              : 'ring-2 ring-border group-hover:ring-primary/40'
-          }`}
-        >
+        <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center p-1 transition-transform duration-300 group-hover:scale-105 ring-2 ring-border group-hover:ring-primary/40">
           {!imageFailed ? (
             <img
               src={currentSrc}
