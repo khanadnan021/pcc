@@ -49,23 +49,46 @@ export default function Team() {
           {TEAM_STATS.map((stat, idx) => {
             const Icon = STAT_ICONS[stat.icon] || Sparkles;
             return (
-              <div
+              <motion.div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-surface-card border border-border/80 flex flex-col items-center text-center relative overflow-hidden group hover:border-primary/40 transition-colors"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+                className="relative p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-surface via-surface-card to-surface-card/95 border border-border/90 hover:border-primary/50 flex flex-col items-center text-center overflow-hidden group transition-all duration-300 shadow-sm hover:shadow-[0_12px_30px_-8px_rgba(123,193,66,0.22)]"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6" />
+                {/* Top Glowing Accent Line */}
+                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Soft Radial Ambient Glow */}
+                <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                {/* Index Pill */}
+                <span className="absolute top-3.5 right-4 font-mono text-[10px] font-bold text-text-muted/40 group-hover:text-primary transition-colors">
+                  0{idx + 1}
+                </span>
+
+                {/* Icon Container */}
+                <div className="relative mb-3.5 mt-1">
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent border border-primary/25 text-primary flex items-center justify-center shadow-[0_0_18px_rgba(123,193,66,0.15)] group-hover:shadow-[0_0_24px_rgba(123,193,66,0.35)] group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                  </div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-heading font-bold text-text-primary tracking-tight">
+
+                {/* Stat Value */}
+                <div className="text-3xl sm:text-4xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-text-primary to-text-secondary tracking-tight">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm font-medium text-text-secondary mt-1">
+
+                {/* Label */}
+                <div className="text-xs sm:text-sm font-heading font-semibold text-text-primary mt-1.5 tracking-wide">
                   {stat.label}
                 </div>
-                <div className="text-[11px] text-text-muted mt-0.5 hidden sm:block">
-                  {stat.description}
+
+                {/* Description Pill */}
+                <div className="mt-2.5 inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono text-text-muted bg-accent/70 px-2.5 py-0.5 rounded-full border border-border/80 group-hover:border-primary/30 group-hover:text-text-secondary transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary/70 group-hover:bg-primary transition-colors" />
+                  <span>{stat.description}</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -72,16 +72,16 @@ export const TEAM_MEMBERS = [
     }
   },
 
-  // Overall / Core Lead
+  // PC Lead
   {
     id: 'owais-shaikh',
     name: 'Owais Shaikh',
-    role: 'Overall Lead / PC Lead',
+    role: 'PC Lead',
     category: 'Core Leaders',
     isLead: true,
     year: 'TE',
     department: 'Computer Engineering',
-    bio: 'Overall lead of the Programmers Club, directing all verticals, technical development, and major hackathons.',
+    bio: 'PC Lead of the Programmers Club, directing all verticals, technical development, and major hackathons.',
     image: 'OWAIS ASHFAQUE SHAIKH.png',
     imageCandidates: [
       'OWAIS ASHFAQUE SHAIKH.png',

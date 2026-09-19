@@ -45,13 +45,6 @@ export default function TeamMemberCard({ member }) {
           : 'bg-surface-card border border-border/80 hover:border-primary/50 hover:bg-surface-hover/80 hover:shadow-lg'
       }`}
     >
-      {/* Lead Ribbon Badge for Overall Lead */}
-      {isSpecialLead && (
-        <div className="absolute -top-3 px-3 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider text-bg bg-primary shadow-sm">
-          Core Leadership
-        </div>
-      )}
-
       {/* Avatar Container */}
       <div className="relative mt-2 mb-4">
         <div
